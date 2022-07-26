@@ -1,6 +1,14 @@
+import { useEffect } from "react";
+import { api } from "../../services/api";
 import { Container } from "./styles";
 
 export function TransictionTable(){
+
+    useEffect(() => {
+        api.get('transactions')
+        .then(response => console.log(response.data))
+    }, [])
+
     return(
         <Container>
             <table>
@@ -16,31 +24,18 @@ export function TransictionTable(){
                 <tbody>
                     <tr>
                         <td>Desenvolvimento de website</td>
-                        <td>12.000</td>
+                        <td className="deposit">R$ 12.000</td>
                         <td>Desenvolvimento</td>
                         <td>20/02/2021</td>
                     </tr>
 
                     <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td>12.000</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/02/2021</td>
+                        <td>Aluguel</td>
+                        <td className="withdraw">- R$ 1.100</td>
+                        <td>Casa</td>
+                        <td>17/02/2021</td>
                     </tr>
                     
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td>12.000</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/02/2021</td>
-                    </tr>
-
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td>12.000</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/02/2021</td>
-                    </tr>
                 </tbody>
             </table>
         </Container>
